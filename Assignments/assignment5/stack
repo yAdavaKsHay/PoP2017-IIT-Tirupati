@@ -1,0 +1,36 @@
+open System
+let mutable inp=Array.create 1000 0
+let mutable start_index=0
+let mutable end_index= -1
+let mutable h=0
+printfn"Enter 1 to push"
+printfn"Enter 2 to pop"
+printfn"Enter 3 to print the que"
+printfn"Enter 4 to exit"
+while(h<>1) do
+      let mutable res1=Console.ReadLine()
+      let mutable res= res1 |> int
+      if(res= 1) then
+         let mutable i1 =Console.ReadLine()
+         let mutable i =i1 |> int
+         if(end_index<>999) then
+               end_index<-end_index+1
+               inp.[end_index]<-i
+         else
+              end_index<-0
+              inp.[end_index]<-i
+      elif(res=2) then 
+           if(start_index<>end_index) then
+              start_index<-start_index+1
+      elif(res=3) then
+             let mutable i=start_index
+             let mutable a=0
+             while(a<>1) do
+                  if(i=1000)then
+                      i<-0
+                  printfn"%A"inp.[i]
+                  if(a=end_index) then
+                     a<-1
+                     i<-i+1
+       elif(res=4) then
+            h<-1
